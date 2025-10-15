@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "sass": "^1.69.5"
+  },
+
+  "scripts": {
+    "sass": "sass ./code/Sass/main.scss ./code/css/index.css",
+    "sass:watch": "sass --watch ./code/Sass/main.scss ./code/css/index.css",
+    "s":"sass ./code/Sass/main.sass ./code/sass-index.css", 
+    "sass2" :"sass --watch ./code/Sass/menue/menue.scss ./code/css/menue/menue.css"
+  }
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+
+
+
+<!-- Lien url pour img/ text 
+img : ../Images et textes Ohmyfood/ -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OhMyFood</title>
+
+    <!-- lien pour recup le fonts sur google api -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Ici on sait quel fonts on cherche et les tailles -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Ici on a tous ce qu'il faut pour Roboto -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Shrikhand&display=swap" rel="stylesheet"> -->
+
+    
+    <!--  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/index.css">
+
+    
+</head>
+
+<body>
+    <div class="main-container">
+        
+        <header>
+            <div class="header">
+
+                <!-- ecriture avec ou sans span ?? placement du box shadow en css  -->
+                <!-- verifier si le span ici est necessaire ou pas  -->
+                <div class="header-logo">
+                        <img  src="../Images et textes Ohmyfood/images/logo/ohmyfood.png" alt="logo OhMyFood">
+                </div>
+
+     
+                <div class="header-txt">
+                    <i class="fa-solid fa-location-dot"></i> 
+                    <label for="location"></label>
+                    <input class="header-txt-input" type="search" placeholder="Paris, Belleville">
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="introduction">
+
+                <h1> Réservez le menu qui vous convient</h1>
+                <h3> Découvrez des restaurants d'exception, sélectionnés par nos soins.</h3>
+
+                <a href="#restaurant">
+                    <button class="introduction-button"> Explorer nos restaurants</button>
+                </a>
+               
+            </div>
+            <i class="fa-solid fa-arrow-left"></i>
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-plus"></i>
+
+
+            <div class="fonction">
+                <h2>Fonctionnement</h2>
+                <div class="fonction-box">
+                    <i class="fa-solid fa-1 fonction-elem-num"></i>
+                    <i class="fa-solid fa-mobile-screen-button fonction-elem-logo"></i>
+                    <p class="fonction-elem-txt"> Choisissez un restaurant</p>
+                </div>
+                <div class="fonction-box">
+                    
+                    <i class="fa-solid fa-2 fonction-elem-num"></i>
+                    <i class="fa-solid fa-list-ul fonction-elem-logo"></i>
+                    <p class="fonction-elem-txt" >Composez votre menue</p>
+                </div>
+                <div class="fonction-box">
+                    
+                    <i class="fa-solid fa-3 fonction-elem-num "></i>
+                    <i class="fa-solid fa-store fonction-elem-logo"></i>
+                    <p class="fonction-elem-txt">Dégustez au restaurant</p>
+                </div>
+            </div>
+
+            <section class="restaurant" id="restaurant">
+                <div class="menue">
+                    <h2>Restaurants</h2>
+                    <div class="menue-item">
+                        <img src="" alt="">
+                        <h3>La palette du gout</h3>
+                        <p>Menilmontant</p>
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                    <div class="menue-item">
+                        <img src="" alt="">
+                        <h3>La palette du gout</h3>
+                        <p>Menilmontant</p>
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                    <div class="menue-item">
+                        <img src="" alt="">
+                        <h3>La palette du gout</h3>
+                        <p>Menilmontant</p>
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                    <div class="menue-item">
+                        <img src="" alt="">
+                        <h3>La palette du gout</h3>
+                        <p>Menilmontant</p>
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <footer >
+
+            <div class="form-item"> 
+                <h2 class="txt-form"> OhMyFood</h2>
+                <a href="#">
+                    <div class="footer-form">
+                        <i class="fa-solid fa-utensils "></i>
+                       <p>Proposer un restaurant </p>
+                    </div>
+                </a>
+ 
+                <a href="#">
+                    <div class="footer-form">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                        <p>Devenir Partenaire</p>
+                    </div>
+                </a>
+
+                <a href="#" class="footer-form">Mentions legales</a>
+                <!-- <p class="footer-form">Mentions legales</p> -->
+                <a href="mailto:ohmyfood@gmail.com" class="footer-form">Contact </a>
+                <!-- <p class="footer-form">Contact</p> -->
+            </div>
+        
+
+        </footer>
+    </div>
+</body>
+
+</html>

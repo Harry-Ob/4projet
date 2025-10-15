@@ -1,0 +1,168 @@
+
+// build var default var for => @incl form-item if needed 
+@import "./outils.scss" ; 
+// @import "./variable.scss";
+
+//  Vu que tu le fait en mobile first tu n'as pas besoin de media queries ici 
+@media screen and (max-width: $phone) {
+    .header {
+            // @include form-item(flex,column);
+            display: flex;
+            flex-direction: column;
+            // justify-content: center;
+            &-txt {
+                gap: 10px;
+                background-color: $grey;
+                @include form-item(flex, row, center, center);
+                height: 60px;
+                
+    
+                // U gotta put it in the center 
+                &-input {
+                    @include form-item(flex, row, center, center);
+                    border: none;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    background-color: $grey ;
+                    width: 6.8rem;
+                }
+            }
+    
+            i {
+                @include form-item(flex, row, center, center);
+                font-size: larger;
+    
+            }
+    
+            &-logo {
+                display:flex;
+                justify-content:center;
+                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+                z-index:2 ;
+    
+                & img {
+                    // @include form-item(flex,row,center,center);
+                    padding: 14px 0px 14px 0px;
+                    width: 198px;
+                    height: 38px;
+                    /* Shadow/Badge */
+                    // box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+                    flex-shrink: 0;
+
+                }
+            }
+        }
+    
+}
+
+// header pour le resteau 
+header {
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+}
+.header-menue{
+    @include form-item(flex,row,center,center) ;
+
+
+    &-logo{
+        width:200px; 
+        height:40px; 
+    }
+}
+
+
+// @media screen and (max-width: $tablette) {
+//     .header{
+//     // @include form-item(flex,column);
+//     display:flex; 
+//     flex-direction: column;
+    
+//         &-txt{
+//             // background-color: ;
+//             background-color:$grey;
+//             @include form-item(flex,row,center,center);
+
+//         }
+//         i{
+//             @include form-item(flex,row,center,center);
+
+//         }
+//         h3{
+//             @include form-item(flex,row,center,center);
+//         }
+
+//     .logo {
+//     @include form-item(flex, row, center, center);
+//     padding: 14px 89px 14px 89px;
+//     /* Shadow/Badge */
+//     // box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+//     flex-shrink: 0;
+//     }
+    
+// }
+
+// }
+
+// @media screen and (max-width: $desktop) {
+//     .header{
+//         // @include form-item(flex,column);
+//         display:flex; 
+//         flex-direction: column;
+        
+//             &-txt{
+//                 // background-color: ;
+//                 background-color:$grey;
+//                 @include form-item(flex,row,center,center);
+    
+//             }
+//             i{
+//                 @include form-item(flex,row,center,center);
+    
+//             }
+//             h3{
+//                 @include form-item(flex,row,center,center);
+//             }
+
+//         .logo{
+//         @include form-item(flex,row,center,center);
+//         padding:14px 89px 14px 89px ;
+//         /* Shadow/Badge */
+//         // box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+//         flex-shrink: 0;
+//         }
+        
+//     }
+
+// }
+
+// // ici on viens cree le large desktop
+// @media screen and (min-width: $desktop) {
+//     .header{
+//         // @include form-item(flex,column);
+//         display:flex; 
+//         flex-direction: column;
+        
+//             &-txt{
+//                 // background-color: ;
+//                 background-color:$grey;
+//                 @include form-item(flex,row,center,center);
+    
+//             }
+//             i{
+//                 @include form-item(flex,row,center,center);
+    
+//             }
+//             h3{
+//                 @include form-item(flex,row,center,center);
+//             }
+
+//         .logo{
+//         @include form-item(flex,row,center,center);
+//         padding:14px 89px 14px 89px ;
+//         /* Shadow/Badge */
+//         // box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+//         flex-shrink: 0;
+//         }
+        
+//     }
+
+// }

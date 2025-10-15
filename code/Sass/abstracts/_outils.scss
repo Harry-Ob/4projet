@@ -1,0 +1,106 @@
+//  ici on va faire des fonctions un peut commune qu'on reutilisera partout
+
+// form-item let us place an item wherever we need 
+@mixin form-item ($display,$flex-dir,$align,$just-cont) {
+    display:$display;
+    flex-direction: $flex-dir;
+    align-items: $align;
+    justify-content:$just-cont;
+}
+
+
+// form item center 
+// @include form-item(flex,row,center,center); 
+// arg : $flex-dir; => if needed 
+@mixin form-item-center () {
+    display:flex;
+    // flex-direction: $flex-dir;
+    flex-direction:column;
+    align-items: center;
+    justify-content:center;
+}
+
+
+
+
+.txt-form {
+    font-family:$Shrinkhand-font;
+}
+
+@mixin headings () {
+    //  h1,h2,h3,
+    //  h4,h5,h6 {
+    //     font-family:$Shrinkhand-font;
+    //     // font-family: $Roboto-font;
+    //  }
+    body{
+        font-family: $Roboto-font;
+    }
+}
+
+
+//  Ici nous avons nos variables 
+// Color 
+// Il y a 3 grey faire bien les diff  
+
+// green
+$dark-green:#008766; 
+$light-green:#99E2D0; 
+
+// blue 
+$dark-blue:#003A68; 
+$light-blue:#89C8FA;
+
+// violet 
+$violet:#9356DC;
+
+// 
+
+// blanc => pas necessaire car predef partout 
+$white:#FFFFFF;
+
+// greys 
+$light-grey:#F6F6F6;
+$grey:#EAEAEA;
+$dark-grey:#353535;
+
+// gradiant 
+$gradiant-violet:linear-gradient(201deg, #9356DC -5.2%, #FF79DA 110.74%); 
+
+
+// border radius entre 40-50px pour le rond 
+// border radius entre 10-20 
+
+
+
+// that's what u need for ur media queries 
+
+// @media screen and (max-width: $phone) {} 
+// @media screen and (max-width: $tablette) {} 
+// @media screen and (max-width: $desktop) {} 
+// @media screen and (min-width: $desktop) {} 
+
+// Size screen 
+// 1440px => to ?? 
+// $large-desktop: ; 
+// 1024px => 1440px 
+$desktop:1440px ; 
+// 767,98 => 1024px 
+$tablette:1024px;
+// 375px => 767,98px  
+$phone:767.98px ; 
+
+// Boutons  rond / Carre 
+// radius-rond : ; 
+// radius-carre : ;
+
+// Outils 
+
+// display: flex ; 
+// flex
+ 
+// border-radius:25px; 
+
+// @mixin border-button-25(){
+// border-radius:25px; 
+// }
