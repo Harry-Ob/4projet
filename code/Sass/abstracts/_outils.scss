@@ -1,4 +1,25 @@
 //  ici on va faire des fonctions un peut commune qu'on reutilisera partout
+@import "../base/typography";
+
+@mixin card($radius: 15px, $shadow: 0 4px 15px rgba(0,0,0,0.15)) {
+  background-color: $white;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+@mixin button-primary {
+  background: $gradiant-violet;
+  color: $white;
+  font-weight: 500;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+
+}
+
 
 // form-item let us place an item wherever we need 
 @mixin form-item ($display,$flex-dir,$align,$just-cont) {
@@ -22,17 +43,7 @@
 
 
 
-
-.txt-form {
-    font-family:$Shrinkhand-font;
-}
-
 @mixin headings () {
-    //  h1,h2,h3,
-    //  h4,h5,h6 {
-    //     font-family:$Shrinkhand-font;
-    //     // font-family: $Roboto-font;
-    //  }
     body{
         font-family: $Roboto-font;
     }
@@ -40,7 +51,8 @@
 
 
 //  Ici nous avons nos variables 
-// Color 
+
+
 // Il y a 3 grey faire bien les diff  
 
 // green
@@ -54,8 +66,6 @@ $light-blue:#89C8FA;
 // violet 
 $violet:#9356DC;
 
-// 
-
 // blanc => pas necessaire car predef partout 
 $white:#FFFFFF;
 
@@ -67,11 +77,38 @@ $dark-grey:#353535;
 // gradiant 
 $gradiant-violet:linear-gradient(201deg, #9356DC -5.2%, #FF79DA 110.74%); 
 
+/* Spacing */
+$gap-s: 10px;
+$gap-m: 20px; // ← ton “gap 20” centralisé
+$gap-l: 40px;
 
-// border radius entre 40-50px pour le rond 
-// border radius entre 10-20 
+/* Cards */
+$card-radius: 1.25rem; // 20px
+$card-shadow: 0 4px 15px rgba(0,0,0,.15);
+$card-bg: #FAFAFA; // Figma
 
+/* Icônes / numéros */
+$icon-color: $dark-grey;
+$step-circle-size: 28px; // taille des cercles 1/2/3
 
+/* Card générique selon Figma */
+@mixin card-figma($radius: $card-radius, $shadow: $card-shadow, $bg: $card-bg) {
+  background: $bg;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+/* Cercle numéroté */
+@mixin step-circle($size: $step-circle-size, $bg: $violet, $color: $white) {
+  @include form-item-center;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background: $bg;
+  color: $color;
+  font-weight: 500; // Figma 500
+  line-height: 1;
+}
 
 // that's what u need for ur media queries 
 
@@ -89,18 +126,3 @@ $desktop:1440px ;
 $tablette:1024px;
 // 375px => 767,98px  
 $phone:767.98px ; 
-
-// Boutons  rond / Carre 
-// radius-rond : ; 
-// radius-carre : ;
-
-// Outils 
-
-// display: flex ; 
-// flex
- 
-// border-radius:25px; 
-
-// @mixin border-button-25(){
-// border-radius:25px; 
-// }
