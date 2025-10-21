@@ -1,0 +1,77 @@
+// Je dois avoir une card deja toute faite et rajouter mes elem dedans
+
+/* === RESTAURANTS (flex-only layout) === */
+.restaurant {
+  background-color: $light-grey;
+  padding: $gap-l $gap-m;
+
+  h2 {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: $dark-grey;
+    margin-bottom: $gap-m;
+  }
+
+  /* container for all restaurant cards */
+  .menue {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-m;
+  }
+
+  /* each restaurant card */
+  .menue-item {
+    @include card-figma($card-radius, $card-shadow, $white);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: space-between;
+
+    /* image at top */
+    img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    /* text + heart row */
+    .menue-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .menue-txt {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        gap: 3px;
+
+        h3 {
+          margin: 0;
+          font-weight: 700;
+          color: $dark-grey;
+        }
+        p {
+          margin: 0;
+          line-height: 1.2;
+        }
+      }
+
+      /* heart icon flex aligned */
+      .menue-heart {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        font-size: 1.3rem;
+        color: $dark-grey;
+      }
+      //   doesnt work but i want it to be seen
+      .menue-heart i.fa-solid .fa-heart::before {
+        color: $gradiant-violet !important;
+      }
+    }
+  }
+}
