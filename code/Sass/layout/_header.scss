@@ -1,12 +1,13 @@
 
 // build var default var for => @incl form-item if needed 
-@import "./outils.scss" ; 
-// @import "./variable.scss";
+@import "../abstracts/outils";
+
 
 //  Vu que tu le fait en mobile first tu n'as pas besoin de media queries ici 
 @media screen and (max-width: $phone) {
     .header {
             // @include form-item(flex,column);
+            width: 100%;
             display: flex;
             flex-direction: column;
             // justify-content: center;
@@ -45,8 +46,6 @@
                     padding: 14px 0px 14px 0px;
                     width: 198px;
                     height: 38px;
-                    /* Shadow/Badge */
-                    // box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
                     flex-shrink: 0;
 
                 }
