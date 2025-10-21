@@ -1,5 +1,7 @@
 // Font 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Shrikhand&display=swap');
-// @import url();
-// $Shrinkhand-font:'Shrikhand', serif; 
 $Roboto-font:'Roboto', sans-serif;
+
+body {
+    font-family:$Roboto-font ; 
+}
