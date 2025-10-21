@@ -1,26 +1,32 @@
+// box of tools for our code 
+@import "./abstracts/outils";
+@import "./abstracts/fonction"; 
+
+// base 
+@import "./base/typography";
 
 
-// @import "./header.scss"; 
-// @import "./introduction.scss";
-// @import "./fonction.scss"; 
-// @import "./restaurants.scss"; 
-// @import "./footer.scss"; 
+// layout 
+@import "./layout/header"; 
+@import "./layout/footer"; 
 
-// @import "./base/typography.scss";
+//  component 
+@import "./components/button";
+@import "./components/cards";
 
-// @include headings ; 
+// pages
+@import "./pages/menue";
+@import "./pages/restaurants"; 
+
+@import "./introduction";
+
+
 
 
 
 body{
     margin:0 auto;
-    // a {
-    //     color:white;
-    //     text-decoration: none ; 
-    // }
 }
-
-// Comment je fais pour que ces couleurs la soient visible dans mon code comme les exemples que nous avons precedemment eux 
-
+ 
 
 
