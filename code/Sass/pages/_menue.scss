@@ -1,2 +1,122 @@
 // this class is used for template.html
-// one css for 4 different html pages 
+
+/* The container that holds all the cards (Entrées, Plats, etc.) */
+.header-menue {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 100px;
+  a {
+    margin-left: 15px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  img {
+    width: 198px; // 👈 smaller, matches previous page
+    height: 38px; // keep proportions natural
+    padding: 14px 0;
+    flex-shrink: 0;
+  }
+}
+
+.menue {
+  // @include form-item-center();
+  // margin-left:15px;
+  background: $light-grey;
+  border-radius: 25px;
+  h2 {
+    margin-left: 15px;
+    font-size: 1rem;
+    font-weight: lighter;
+    text-transform: uppercase;
+    &::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: $light-green;
+       margin-top: 5px;
+    }
+  }
+
+  .txt-form {
+    margin-left: 15px;
+  }
+  &-header {
+    @include form-item(flex, row, center, space-between);
+    // display:flex ;
+    // flex-direction: row;
+    // align-items: center;
+    // justify-content: center;
+    gap: 50px;
+    i{
+        margin-right:40px
+    }
+  }
+}
+.menue-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  //  margin: 1rem 0 2rem;    /* spacing between sections */
+}
+/* Each card */
+.menue-item {
+    @include card-figma; 
+//   background: #fff;
+//   border-radius: $card-radius;
+//   box-shadow: $card-radius;
+  padding: 1rem;
+
+  display: flex;
+  align-items: flex-start; /* align to top edge */
+  justify-content: space-between;
+  gap: 1rem;
+  margin-inline: 15px;
+  &-txt {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1 1 auto; /* grow/shrink as needed */
+    min-width: 0; /* allows text to wrap instead of pushing price away */
+    h3 {
+      margin: 0;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0;
+      opacity: 0.8; /* lighter tone like in your mock */
+    }
+  }
+
+  &-price {
+    // verifier notre premiere ligne de code and why it is still needed
+    align-self: flex-end; /* sit at the bottom of the left column’s height */
+    display: flex;
+    align-items: baseline; /* better optics for number + € */
+    gap: 0.25rem;
+    font-weight: 700;
+    white-space: nowrap; /* “25 €” stays together */
+    & p {
+      margin: 0;
+    }
+  }
+}
+
+.euro {
+  font-weight: 700;
+}
+
+.button-command {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  button {
+    @include button-primary;
+  }
+}
+// one css for 4 different html pages
