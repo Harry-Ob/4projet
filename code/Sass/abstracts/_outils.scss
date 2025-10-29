@@ -1,55 +1,5 @@
 //  ici on va faire des fonctions un peut commune qu'on reutilisera partout
 @import "../base/typography";
-
-@mixin card($radius: 15px, $shadow: 0 4px 15px rgba(0,0,0,0.15)) {
-  background-color: $white;
-  border-radius: $radius;
-  box-shadow: $shadow;
-}
-
-@mixin button-primary {
-  background: $gradiant-violet;
-  color: $white;
-  font-weight: 500;
-  border: none;
-  border-radius: 25px;
-  padding: 15px 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-
-}
-
-
-// form-item let us place an item wherever we need 
-@mixin form-item ($display,$flex-dir,$align,$just-cont) {
-    display:$display;
-    flex-direction: $flex-dir;
-    align-items: $align;
-    justify-content:$just-cont;
-}
-
-
-// form item center 
-// @include form-item(flex,row,center,center); 
-// arg : $flex-dir; => if needed 
-@mixin form-item-center () {
-    display:flex;
-    // flex-direction: $flex-dir;
-    flex-direction:column;
-    align-items: center;
-    justify-content:center;
-}
-
-
-
-@mixin headings () {
-    body{
-        font-family: $Roboto-font;
-    }
-}
-
-
 //  Ici nous avons nos variables 
 
 
@@ -91,6 +41,70 @@ $card-bg: #FAFAFA; // Figma
 $icon-color: $dark-grey;
 $step-circle-size: 28px; // taille des cercles 1/2/3
 
+// Size screen 
+ 
+// 1440px => to ?? 
+// $large-desktop: ; 
+// 1024px => 1440px 
+$desktop:1440px ; 
+// 767,98 => 1024px 
+$tablette:1024px;
+// 375px => 767,98px  
+$phone:767.98px ; 
+
+
+
+@mixin card($radius: 15px, $shadow: 0 4px 15px rgba(0,0,0,0.15)) {
+  background-color: $white;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+@mixin button-primary {
+  background: $gradiant-violet;
+  color: $white;
+  font-weight: 500;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 25px;
+  // cursor: pointer;
+  // transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+
+}
+
+
+// form-item let us place an item wherever we need 
+@mixin form-item ($display,$flex-dir,$align,$just-cont) {
+    display:$display;
+    flex-direction: $flex-dir;
+    align-items: $align;
+    justify-content:$just-cont;
+}
+
+
+// form item center 
+// @include form-item(flex,row,center,center); 
+// arg : $flex-dir; => if needed 
+@mixin form-item-center () {
+    display:flex;
+    // flex-direction: $flex-dir;
+    flex-direction:column;
+    align-items: center;
+    justify-content:center;
+}
+
+
+
+@mixin headings () {
+    body{
+        font-family: $Roboto-font;
+    }
+}
+
+
+
+
 /* Card générique selon Figma */
 @mixin card-figma($radius: $card-radius, $shadow: $card-shadow, $bg: $card-bg) {
   background: $bg;
@@ -117,12 +131,3 @@ $step-circle-size: 28px; // taille des cercles 1/2/3
 // @media screen and (max-width: $desktop) {} 
 // @media screen and (min-width: $desktop) {} 
 
-// Size screen 
-// 1440px => to ?? 
-// $large-desktop: ; 
-// 1024px => 1440px 
-$desktop:1440px ; 
-// 767,98 => 1024px 
-$tablette:1024px;
-// 375px => 767,98px  
-$phone:767.98px ; 
