@@ -5,16 +5,23 @@ footer{
         // .#{&}-logo{
         // color:white;
         // }
+        .form-item h2{
+                        
+                font-family:$logo-font; 
+                margin-bottom:0; 
+            
+        }
         .#{&}-form{
             @include form-item (flex,row,center,flex-start);
             gap: 10px;
             margin-left: 0; 
             margin-top:7px; 
-            // margin-right;
-            // & logo{
-            //     width: 30px;
-                
-            // }
+           
+            @include tablet_desktop{
+                display:flex;
+                flex-direction: row;
+            }
+
         }
         a {
             color:white;
@@ -33,7 +40,31 @@ footer{
         i {
             width: 20px ; 
         }
+        
+        @include tablet_desktop{
+    display:flex;
+    // flex-direction: row;
+    justify-content: flex-end;
+    .form-item{
+        display:flex;
+        flex-direction: row-reverse;
+        // justify-items: center;
+        // justify-content: flex-end;
+        align-items: center;
+        gap:20px;
+            &-txt{
+                display:flex;
+                gap:10px;
+            }
+
+
+    }
+
+
 }
+
+}
+
 
 
 
