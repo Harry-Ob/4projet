@@ -24,52 +24,51 @@ body {
 /* Icônes / numéros */
 /* Card générique selon Figma */
 /* Cercle numéroté */
-@media screen and (max-width: 767.98px) {
-  .header {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  .header-txt {
-    gap: 10px;
-    background-color: #EAEAEA;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 60px;
-  }
-  .header-txt-input {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: #EAEAEA;
-    width: 6.8rem;
-  }
-  .header i {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    font-size: larger;
-  }
-  .header-logo {
-    display: flex;
-    justify-content: center;
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
-    z-index: 2;
-  }
-  .header-logo img {
-    padding: 14px 0px 14px 0px;
-    width: 198px;
-    height: 38px;
-    flex-shrink: 0;
-  }
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
+.header-txt {
+  gap: 10px;
+  background-color: #eaeaea;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
+.header-txt-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #eaeaea;
+  width: 8.6rem;
+}
+.header i {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
+}
+.header-logo {
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+.header-logo img {
+  padding: 14px 0px 14px 0px;
+  width: 198px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
 header {
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
 }
@@ -80,15 +79,15 @@ header {
   align-items: center;
   justify-content: center;
 }
-.header-menue-logo {
-  width: 200px;
-  height: 40px;
-}
 
 footer {
   background-color: #353535;
   color: white;
   padding: 22px 25px 22px 25px;
+}
+footer .form-item h2 {
+  font-family: "Shrikhand", "sans-serif";
+  margin-bottom: 0;
 }
 footer .footer-form {
   display: flex;
@@ -98,6 +97,12 @@ footer .footer-form {
   gap: 10px;
   margin-left: 0;
   margin-top: 7px;
+}
+@media (min-width: 767.98px) {
+  footer .footer-form {
+    display: flex;
+    flex-direction: row;
+  }
 }
 footer a {
   color: white;
@@ -114,10 +119,144 @@ footer h2 {
 footer i {
   width: 20px;
 }
+@media (min-width: 767.98px) {
+  footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+  footer .form-item {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 20px;
+  }
+  footer .form-item-txt {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+/* The container that holds all the cards (Entrées, Plats, etc.) */
+.header-menue {
+  gap: 100px;
+}
+.header-menue a {
+  margin-left: 15px;
+}
+.header-menue .logo {
+  display: flex;
+  align-items: center;
+}
+.header-menue img {
+  width: 198px;
+  height: 38px;
+  padding: 14px 0;
+  flex-shrink: 0;
+}
+
+.menue {
+  background: #f6f6f6;
+  border-radius: 25px 25px 0px 0px;
+  margin-top: -25px;
+  z-index: 100;
+  position: relative;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+.menue h2 {
+  margin-left: 15px;
+  font-size: 1rem;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+.menue h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #99e2d0;
+  margin-top: 5px;
+}
+.menue .txt-form {
+  margin-left: 15px;
+}
+.menue-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+.menue-header i {
+  margin-right: 40px;
+}
+
+.menue-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Each card */
+.menue-item {
+  background: #fafafa;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: flex-start; /* align to top edge */
+  justify-content: space-between;
+  gap: 1rem;
+  margin-inline: 15px;
+}
+.menue-item-txt {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1 1 auto; /* grow/shrink as needed */
+  min-width: 0; /* allows text to wrap instead of pushing price away */
+}
+.menue-item-txt h3 {
+  margin: 0;
+  font-weight: 700;
+}
+.menue-item-txt p {
+  margin: 0;
+  opacity: 0.8; /* lighter tone like in your mock */
+}
+.menue-item-price {
+  align-self: flex-end; /* sit at the bottom of the left column’s height */
+  display: flex;
+  align-items: baseline; /* better optics for number + € */
+  gap: 0.25rem;
+  font-weight: 700;
+  white-space: nowrap; /* “25 €” stays together */
+}
+.menue-item-price p {
+  margin: 0;
+}
+
+.euro {
+  font-weight: 700;
+}
+
+.button-command {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+.button-command button {
+  background: linear-gradient(201deg, #9356dc -5.2%, #ff79da 110.74%);
+  color: #ffffff;
+  font-weight: 500;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
 
 /* === RESTAURANTS (flex-only layout) === */
 .restaurant {
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
   padding: 40px 20px;
   /* container for all restaurant cards */
   /* each restaurant card */
@@ -134,7 +273,7 @@ footer i {
   gap: 20px;
 }
 .restaurant .menue-item {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 1.25rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   display: flex;
@@ -181,7 +320,7 @@ footer i {
   color: #353535;
 }
 .restaurant .menue-item .menue-content .menue-heart i.fa-solid .fa-heart::before {
-  color: linear-gradient(201deg, #9356DC -5.2%, #FF79DA 110.74%) !important;
+  color: linear-gradient(201deg, #9356dc -5.2%, #ff79da 110.74%) !important;
 }
 
 .introduction {
@@ -190,7 +329,7 @@ footer i {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
   gap: 20px;
 }
 .introduction h1 {
@@ -208,17 +347,16 @@ footer i {
   margin-bottom: 25px;
 }
 .introduction-button {
-  background: linear-gradient(201deg, #9356DC -5.2%, #FF79DA 110.74%);
-  color: #FFFFFF;
+  background: linear-gradient(201deg, #9356dc -5.2%, #ff79da 110.74%);
+  color: #ffffff;
   font-weight: 500;
   border: none;
   border-radius: 25px;
   padding: 15px 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   border-radius: 25px;
   font-size: 1rem;
+  margin-bottom: 3rem;
 }
 
 .img-background {
@@ -228,11 +366,12 @@ footer i {
 .img-background img {
   height: 240px;
   object-fit: cover;
+  width: 100%;
 }
 
 /* === FONCTIONNEMENT === */
 .fonction {
-  background: #FFFFFF;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -243,13 +382,32 @@ footer i {
   /* Icône FontAwesome */
   /* Texte */
 }
+@media (min-width: 767.98px) {
+  .fonction {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    align-items: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+  .fonction h2 {
+    display: flex;
+  }
+  .fonction-box-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+}
 .fonction h2 {
   font-weight: 700;
   font-size: 1.4rem;
   color: #353535;
 }
 .fonction-box {
-  background: #FAFAFA;
+  background: #fafafa;
   border-radius: 1.25rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   display: flex;
@@ -260,7 +418,6 @@ footer i {
   min-height: 72px;
 }
 .fonction .fonction-elem-num {
-  margin: -60px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -268,8 +425,8 @@ footer i {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: #9356DC;
-  color: #FFFFFF;
+  background: #9356dc;
+  color: #ffffff;
   font-weight: 500;
   line-height: 1;
   font-size: 0.9rem;
