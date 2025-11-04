@@ -11,6 +11,7 @@
     <!-- Ici on sait quel fonts on cherche et les tailles -->
     <link
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap"
+      
       rel="stylesheet"
     />
     <link
@@ -62,7 +63,9 @@
 
         <div class="fonction">
           <h2>Fonctionnement</h2>
-          <div class="fonction-box">
+
+          <div class="fonction-box-container">
+            <div class="fonction-box">
             <i class="fa-solid fa-1 fonction-elem-num"></i>
             <i class="fa-solid fa-mobile-screen-button fonction-elem-logo"></i>
             <p class="fonction-elem-txt">Choisissez un restaurant</p>
@@ -77,6 +80,8 @@
             <i class="fa-solid fa-store fonction-elem-logo"></i>
             <p class="fonction-elem-txt">Dégustez au restaurant</p>
           </div>
+          </div>
+          
         </div>
 
         <section class="restaurant" id="restaurant">
@@ -87,37 +92,50 @@
                 src="../Images et textes Ohmyfood/images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
                 alt=""
               />
-              <h3>La palette du gout</h3>
-              <p>Menilmontant</p>
-              <i class="fa-regular fa-heart"></i>
+              <div class="menue-content">
+                <div class="menue-txt">
+                  <h3>La palette du gout</h3>
+                  <p>Menilmontant</p>
+                </div>
+
+                <i class="fa-regular fa-heart"></i>
+              </div>
             </div>
             <div class="menue-item">
               <img
                 src="../Images et textes Ohmyfood/images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg"
                 alt=""
               />
+              <div class="menue-content">
+                <div class="menue-txt">
+                  <h3>La palette du gout</h3>
+                  <p>Menilmontant</p>
+                </div>
 
-              <h3>La palette du gout</h3>
-              <p>Menilmontant</p>
-              <i class="fa-regular fa-heart"></i>
+                <i class="fa-regular fa-heart"></i>
+              </div>
             </div>
             <div class="menue-item">
               <img
                 src="../Images et textes Ohmyfood/images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg"
                 alt=""
               />
+              <div class="menue-content">
+                <div class="menue-txt">
+                  <h3>La palette du gout</h3>
+                  <p>Menilmontant</p>
+                </div>
 
-              <h3>La palette du gout</h3>
-              <p>Menilmontant</p>
-              <i class="fa-regular fa-heart"></i>
+                <i class="fa-regular fa-heart"></i>
+              </div>
             </div>
             <!-- class test, make that one looks like u need then copie the structure to others card -->
             <div class="menue-item">
+              <!-- <div class="menue-item-img"> -->
               <img
                 src="../Images et textes Ohmyfood/images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg"
                 alt=""
               />
-
               <div class="menue-content">
                 <div class="menue-txt">
                   <h3>La palette du gout</h3>
@@ -135,8 +153,10 @@
 
       <footer>
         <div class="form-item">
-          <h2 class="txt-form">OhMyFood</h2>
-          <a href="#">
+          <h2 class="txt-form">Ohmyfood</h2>
+
+          <div class="form-item-txt">
+                      <a href="#">
             <div class="footer-form">
               <i class="fa-solid fa-utensils"></i>
               <p>Proposer un restaurant</p>
@@ -152,6 +172,8 @@
 
           <a href="#" class="footer-form">Mentions legales</a>
           <a href="mailto:ohmyfood@gmail.com" class="footer-form">Contact </a>
+          </div>
+
         </div>
       </footer>
     </div>
