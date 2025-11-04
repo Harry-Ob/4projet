@@ -4,7 +4,7 @@
 
 
 //  Vu que tu le fait en mobile first tu n'as pas besoin de media queries ici 
-@media screen and (max-width: $phone) {
+// @media screen and (max-width: $phone) {
     .header {
             // @include form-item(flex,column);
             width: 100%;
@@ -22,10 +22,10 @@
                 &-input {
                     @include form-item(flex, row, center, center);
                     border: none;
-                    font-size: 1rem;
+                    font-size: 1.0rem;
                     font-weight: bold;
                     background-color: $grey ;
-                    width: 6.8rem;
+                    width: 8.6rem;
                 }
             }
     
@@ -52,7 +52,7 @@
             }
         }
     
-}
+
 
 // header pour le resteau 
 header {
