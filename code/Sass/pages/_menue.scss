@@ -1,37 +1,15 @@
 // this class is used for template.html
 
 /* The container that holds all the cards (Entrées, Plats, etc.) */
-.header-menue {
-  // display: flex;
-  // align-items: center;
-  // justify-content: flex-start;
-  gap: 100px;
-  a {
-    margin-left: 15px;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  img {
-    width: 198px; // 👈 smaller, matches previous page
-    height: 38px; // keep proportions natural
-    padding: 14px 0;
-    flex-shrink: 0;
-  }
-}
 
 .menue {
-  // @include form-item-center();
-  // margin-left:15px;
   background: $light-grey;
   border-radius: 25px 25px 0px 0px;
-  margin-top:-25px;
-  z-index:100;
-  position:relative;
-  margin-right:50px;
-  margin-left:50px;
+  margin-top: -25px;
+  z-index: 100;
+  position: relative;
+  margin-right: 50px;
+  margin-left: 50px;
 
   h2 {
     margin-left: 15px;
@@ -44,38 +22,43 @@
       width: 40px;
       height: 3px;
       background: $light-green;
-       margin-top: 5px;
+      margin-top: 5px;
     }
   }
 
   .txt-form {
+    font-family: $logo-font;
     margin-left: 15px;
   }
   &-header {
+    @include tablet_desktop {
+      justify-content: center;
+    }
     @include form-item(flex, row, center, space-between);
-    // display:flex ;
-    // flex-direction: row;
-    // align-items: center;
-    // justify-content: center;
     gap: 50px;
-    i{
-        margin-right:40px
+    i {
+      margin-right: 40px;
     }
   }
 }
 .menue-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: $gap-m;
+  margin-bottom: 50px;
   //  margin: 1rem 0 2rem;    /* spacing between sections */
+}
+
+@include tablet_desktop {
+  .restaurant .menue-item {
+    box-sizing: border-box;
+    margin: 0;
+    flex: 0 0 calc((100% - #{$gap-m}) / 2);
+  }
 }
 /* Each card */
 .menue-item {
-    @include card-figma; 
-//   background: #fff;
-//   border-radius: $card-radius;
-//   box-shadow: $card-radius;
-  // padding: 1rem;
+  @include card-figma;
 
   display: flex;
   align-items: flex-start; /* align to top edge */
@@ -83,6 +66,8 @@
   gap: 1rem;
   margin-inline: 15px;
   &-txt {
+    padding-top: 10px;
+    padding-left: 10px;
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
@@ -107,6 +92,8 @@
     gap: 0.25rem;
     font-weight: 700;
     white-space: nowrap; /* “25 €” stays together */
+    padding-right: 10px;
+    padding-bottom: 10px;
     & p {
       margin: 0;
     }
