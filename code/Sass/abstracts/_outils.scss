@@ -1,31 +1,30 @@
 //  ici on va faire des fonctions un peut commune qu'on reutilisera partout
 @import "../base/typography";
-//  Ici nous avons nos variables 
+//  Ici nous avons nos variables
 
-
-// Il y a 3 grey faire bien les diff  
+// Il y a 3 grey faire bien les diff
 
 // green
-$dark-green:#008766; 
-$light-green:#99E2D0; 
+$dark-green: #008766;
+$light-green: #99e2d0;
 
-// blue 
-$dark-blue:#003A68; 
-$light-blue:#89C8FA;
+// blue
+$dark-blue: #003a68;
+$light-blue: #89c8fa;
 
-// violet 
-$violet:#9356DC;
+// violet
+$violet: #9356dc;
 
-// blanc => pas necessaire car predef partout 
-$white:#FFFFFF;
+// blanc => pas necessaire car predef partout
+$white: #ffffff;
 
-// greys 
-$light-grey:#F6F6F6;
-$grey:#EAEAEA;
-$dark-grey:#353535;
+// greys
+$light-grey: #f6f6f6;
+$grey: #eaeaea;
+$dark-grey: #353535;
 
-// gradiant 
-$gradiant-violet:linear-gradient(201deg, #9356DC -5.2%, #FF79DA 110.74%); 
+// gradiant
+$gradiant-violet: linear-gradient(201deg, #9356dc -5.2%, #ff79da 110.74%);
 
 /* Spacing */
 $gap-s: 10px;
@@ -34,83 +33,62 @@ $gap-l: 40px;
 
 /* Cards */
 $card-radius: 1.25rem; // 20px
-$card-shadow: 0 4px 15px rgba(0,0,0,.15);
-$card-bg: #FAFAFA; // Figma
+$card-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+$card-bg: #fafafa; // Figma
 
 /* Icônes / numéros */
 $icon-color: $dark-grey;
 $step-circle-size: 28px; // taille des cercles 1/2/3
 
-// Size screen 
- 
-// 1440px => to ?? 
-// $large-desktop: ; 
-// 1024px => 1440px 
-$desktop:1440px ; 
-// 767,98 => 1024px 
-$tablette:1024px;
-// 375px => 767,98px  
-$phone:767.98px ; 
+// Size screen
 
+// 1440px => to ??
+// $large-desktop: ;
+// 1024px => 1440px
+$desktop: 1440px;
+// 767,98 => 1024px
+$tablette: 1024px;
+// 375px => 767,98px
+$phone: 767.98px;
 
+@mixin tablet_desktop {
+  @media (min-width: $phone) {
+    @content;
+  }
+}
 
-@mixin card($radius: 15px, $shadow: 0 4px 15px rgba(0,0,0,0.15)) {
+@mixin card($radius: 15px, $shadow: 0 4px 15px rgba(0, 0, 0, 0.15)) {
   background-color: $white;
   border-radius: $radius;
   box-shadow: $shadow;
 }
 
-@mixin button-primary {
-  background: $gradiant-violet;
-  color: $white;
-  font-weight: 500;
-  border: none;
-  border-radius: 25px;
-  padding: 15px 25px;
-  // cursor: pointer;
-  // transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-
+// form-item let us place an item wherever we need
+@mixin form-item($display, $flex-dir, $align, $just-cont) {
+  display: $display;
+  flex-direction: $flex-dir;
+  align-items: $align;
+  justify-content: $just-cont;
 }
 
-
-// form-item let us place an item wherever we need 
-@mixin form-item ($display,$flex-dir,$align,$just-cont) {
-    display:$display;
-    flex-direction: $flex-dir;
-    align-items: $align;
-    justify-content:$just-cont;
+// form item center
+// @include form-item(flex,row,center,center);
+// arg : $flex-dir; => if needed
+@mixin form-item-center() {
+  display: flex;
+  // flex-direction: $flex-dir;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-
-// form item center 
-// @include form-item(flex,row,center,center); 
-// arg : $flex-dir; => if needed 
-@mixin form-item-center () {
-    display:flex;
-    // flex-direction: $flex-dir;
-    flex-direction:column;
-    align-items: center;
-    justify-content:center;
+@mixin headings() {
+  body {
+    font-family: $Roboto-font;
+  }
 }
-
-
-
-@mixin headings () {
-    body{
-        font-family: $Roboto-font;
-    }
-}
-
-
-
 
 /* Card générique selon Figma */
-@mixin card-figma($radius: $card-radius, $shadow: $card-shadow, $bg: $card-bg) {
-  background: $bg;
-  border-radius: $radius;
-  box-shadow: $shadow;
-}
 
 /* Cercle numéroté */
 @mixin step-circle($size: $step-circle-size, $bg: $violet, $color: $white) {
@@ -124,10 +102,9 @@ $phone:767.98px ;
   line-height: 1;
 }
 
-// that's what u need for ur media queries 
+// that's what u need for ur media queries
 
-// @media screen and (max-width: $phone) {} 
-// @media screen and (max-width: $tablette) {} 
-// @media screen and (max-width: $desktop) {} 
-// @media screen and (min-width: $desktop) {} 
-
+// @media screen and (max-width: $phone) {}
+// @media screen and (max-width: $tablette) {}
+// @media screen and (max-width: $desktop) {}
+// @media screen and (min-width: $desktop) {}
