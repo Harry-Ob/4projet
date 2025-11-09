@@ -69,6 +69,26 @@ body {
   flex-shrink: 0;
 }
 
+.header-menue {
+  gap: 100px;
+}
+.header-menue a {
+  justify-content: center;
+  display: flex;
+  position: absolute;
+  left: 30px;
+}
+.header-menue .logo {
+  display: flex;
+  align-items: center;
+}
+.header-menue img {
+  width: 198px;
+  height: 38px;
+  padding: 14px 0;
+  flex-shrink: 0;
+}
+
 header {
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
 }
@@ -78,6 +98,8 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  position: relative;
+  padding: 0 20px;
 }
 
 footer {
@@ -137,23 +159,6 @@ footer i {
 }
 
 /* The container that holds all the cards (Entrées, Plats, etc.) */
-.header-menue {
-  gap: 100px;
-}
-.header-menue a {
-  margin-left: 15px;
-}
-.header-menue .logo {
-  display: flex;
-  align-items: center;
-}
-.header-menue img {
-  width: 198px;
-  height: 38px;
-  padding: 14px 0;
-  flex-shrink: 0;
-}
-
 .menue {
   background: #f6f6f6;
   border-radius: 25px 25px 0px 0px;
@@ -178,6 +183,7 @@ footer i {
   margin-top: 5px;
 }
 .menue .txt-form {
+  font-family: "Shrikhand", "sans-serif";
   margin-left: 15px;
 }
 .menue-header {
@@ -187,6 +193,11 @@ footer i {
   justify-content: space-between;
   gap: 50px;
 }
+@media (min-width: 767.98px) {
+  .menue-header {
+    justify-content: center;
+  }
+}
 .menue-header i {
   margin-right: 40px;
 }
@@ -194,9 +205,17 @@ footer i {
 .menue-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
+  margin-bottom: 50px;
 }
 
+@media (min-width: 767.98px) {
+  .restaurant .menue-item {
+    box-sizing: border-box;
+    margin: 0;
+    flex: 0 0 calc((100% - 20px) / 2);
+  }
+}
 /* Each card */
 .menue-item {
   background: #fafafa;
@@ -209,6 +228,8 @@ footer i {
   margin-inline: 15px;
 }
 .menue-item-txt {
+  padding-top: 10px;
+  padding-left: 10px;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -230,6 +251,8 @@ footer i {
   gap: 0.25rem;
   font-weight: 700;
   white-space: nowrap; /* “25 €” stays together */
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
 .menue-item-price p {
   margin: 0;
@@ -294,6 +317,11 @@ footer i {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
   /* heart icon flex aligned */
 }
 .restaurant .menue-item .menue-content .menue-txt {
@@ -378,16 +406,21 @@ footer i {
   justify-content: center;
   width: 100%;
   gap: 20px;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
   /* Cercle numéroté (1 / 2 / 3) — déborde à gauche comme sur Figma */
   /* Icône FontAwesome */
   /* Texte */
+}
+.fonction-box-container {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
 }
 @media (min-width: 767.98px) {
   .fonction {
     display: flex;
     flex-direction: column;
-    margin-bottom: 3rem;
-    margin-top: 3rem;
     align-items: flex-start;
     align-content: center;
     flex-wrap: wrap;
@@ -416,6 +449,7 @@ footer i {
   justify-content: flex-start;
   gap: 20px;
   min-height: 72px;
+  min-width: 280px;
 }
 .fonction .fonction-elem-num {
   display: flex;
@@ -430,6 +464,7 @@ footer i {
   font-weight: 500;
   line-height: 1;
   font-size: 0.9rem;
+  margin-left: -10px;
 }
 .fonction .fonction-elem-logo {
   font-size: 1.2rem;
