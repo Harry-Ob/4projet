@@ -55,9 +55,25 @@
     margin: 0;
     flex: 0 0 calc((100% - #{$gap-m}) / 2);
   }
+  .menue-container{
+    flex-direction:row;
+    flex-wrap:wrap;
+  }
 }
 /* Each card */
 .menue-item {
+  position:relative;
+
+
+  .badge{
+    position:absolute; 
+    top:12px;
+    right:12px; 
+    background: $light-green ; 
+    color:$dark-green;
+    padding:6px 10px; 
+  }
+
   @include card-figma;
 
   display: flex;
@@ -66,8 +82,9 @@
   gap: 1rem;
   margin-inline: 15px;
   &-txt {
-    padding-top: 10px;
-    padding-left: 10px;
+    padding:10px 0px 10px 10px; 
+    // padding-top: 10px;
+    // padding-left: 10px;
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
