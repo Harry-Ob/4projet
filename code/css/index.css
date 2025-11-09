@@ -215,9 +215,14 @@ footer i {
     margin: 0;
     flex: 0 0 calc((100% - 20px) / 2);
   }
+  .menue-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 /* Each card */
 .menue-item {
+  position: relative;
   background: #fafafa;
   border-radius: 1.25rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
@@ -227,9 +232,16 @@ footer i {
   gap: 1rem;
   margin-inline: 15px;
 }
+.menue-item .badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #99e2d0;
+  color: #008766;
+  padding: 6px 10px;
+}
 .menue-item-txt {
-  padding-top: 10px;
-  padding-left: 10px;
+  padding: 10px 0px 10px 10px;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
