@@ -1,21 +1,18 @@
-// build var default var for => @incl form-item if needed
 @import "../abstracts/outils";
 
-//  Vu que tu le fait en mobile first tu n'as pas besoin de media queries ici
-// @media screen and (max-width: $phone) {
 .header {
-  // @include form-item(flex,column);
   width: 100%;
   display: flex;
   flex-direction: column;
-  // justify-content: center;
+
+ 
   &-txt {
     gap: 10px;
     background-color: $grey;
     @include form-item(flex, row, center, center);
     height: 60px;
 
-    // U gotta put it in the center
+    
     &-input {
       @include form-item(flex, row, center, center);
       border: none;
@@ -38,7 +35,6 @@
     z-index: 2;
 
     & img {
-      // @include form-item(flex,row,center,center);
       padding: 14px 0px 14px 0px;
       width: 198px;
       height: 38px;
@@ -51,28 +47,36 @@
 
 .header-menue {
   gap: 100px;
+
   a {
     justify-content: center;
     display: flex;
     position: absolute;
     left: 30px;
-    // margin-left: 15px;
+    color: black;
+    text-decoration: none;
+    font-size: larger;
+
   }
 
   .logo {
     display: flex;
     align-items: center;
+
   }
+
   img {
-    width: 198px; // 👈 smaller, matches previous page
-    height: 38px; // keep proportions natural
+    width: 198px; 
+    height: 38px;
     padding: 14px 0;
     flex-shrink: 0;
   }
 }
+
 header {
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
 }
+
 .header-menue {
   @include form-item(flex, row, center, center);
   position: relative;
