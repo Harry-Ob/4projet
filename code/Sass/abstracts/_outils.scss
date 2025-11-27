@@ -1,8 +1,10 @@
-//  ici on va faire des fonctions un peut commune qu'on reutilisera partout
+// This file is for variables, mixins, functions, etc.
+// This file could be separated into several files if it gets too big
+//  ex: _variables.scss, _mixins.scss, _functions.scss, etc.
 @import "../base/typography";
-//  Ici nous avons nos variables
 
-// Il y a 3 grey faire bien les diff
+
+/* Colors */
 
 // green
 $dark-green: #008766;
@@ -12,10 +14,11 @@ $light-green: #99e2d0;
 $dark-blue: #003a68;
 $light-blue: #89c8fa;
 
-// violet
+// violet and pink 
 $violet: #9356dc;
+$pink:#ff79da; 
 
-// blanc => pas necessaire car predef partout
+// white
 $white: #ffffff;
 
 // greys
@@ -25,10 +28,12 @@ $dark-grey: #353535;
 
 // gradiant
 $gradiant-violet: linear-gradient(201deg, #9356dc -5.2%, #ff79da 110.74%);
+$gradiant-light-violet:linear-gradient( 210deg, lighten($violet,10%) -5.2% , lighten($pink , 10%) 110% );
+
 
 /* Spacing */
 $gap-s: 10px;
-$gap-m: 20px; // ← ton “gap 20” centralisé
+$gap-m: 20px; 
 $gap-l: 40px;
 
 /* Cards */
@@ -40,30 +45,88 @@ $card-bg: #fafafa; // Figma
 $icon-color: $dark-grey;
 $step-circle-size: 28px; // taille des cercles 1/2/3
 
-// Size screen
+// transition 
+$lighter-button:background 0.4s ease; 
 
-// 1440px => to ??
-// $large-desktop: ;
-// 1024px => 1440px
+/* Animations */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@mixin animation-fade-in {
+    opacity:0; 
+    transform: translateY(10px); 
+    will-change: opacity, transform;
+    animation:fadeSlideIn 2s ease-out forwards;
+}
+
+// Animation for the loading screen
+.loader-ring {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: $dark-grey;
+  z-index: 9999;
+  animation: fadeOut 0.8s ease 2.0s forwards; /* fade after 2.5s */
+}
+
+.ring {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 6px solid white;        /* start grey */
+  border-top-color: $violet;        /* pink */
+  animation:
+    spin 1s linear infinite,        /* rotation */
+    colorShift 2s ease forwards;    /* gradual pink → violet */
+}
+
+/* spin rotation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+/* fade out overlay */
+@keyframes fadeOut {
+  0%   { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+// responsive breakpoints
 $desktop: 1440px;
-// 767,98 => 1024px
-$tablette: 1024px;
-// 375px => 767,98px
+$tablet: 1024px;
 $phone: 767.98px;
 
-@mixin tablet_desktop {
+// most of the time from tablet to LargeDesktop 
+@mixin desktop {
   @media (min-width: $phone) {
     @content;
   }
 }
 
+@mixin tablet {
+  @media(min-width:$phone ) and (max-width:$tablet){
+    @content;
+  }
+}
+
+// card 
 @mixin card($radius: 15px, $shadow: 0 4px 15px rgba(0, 0, 0, 0.15)) {
   background-color: $white;
   border-radius: $radius;
   box-shadow: $shadow;
 }
 
-// form-item let us place an item wherever we need
+// form-item let us place an item wherever we need 
 @mixin form-item($display, $flex-dir, $align, $just-cont) {
   display: $display;
   flex-direction: $flex-dir;
@@ -71,24 +134,21 @@ $phone: 767.98px;
   justify-content: $just-cont;
 }
 
-// form item center
-// @include form-item(flex,row,center,center);
-// arg : $flex-dir; => if needed
+// centered form-item -> take an item and flex it in center
 @mixin form-item-center() {
   display: flex;
-  // flex-direction: $flex-dir;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+// typography for body
 @mixin headings() {
   body {
     font-family: $Roboto-font;
   }
 }
 
-/* Card générique selon Figma */
 
 /* Cercle numéroté */
 @mixin step-circle($size: $step-circle-size, $bg: $violet, $color: $white) {
@@ -98,13 +158,127 @@ $phone: 767.98px;
   border-radius: 50%;
   background: $bg;
   color: $color;
-  font-weight: 500; // Figma 500
+  font-weight: 500; 
   line-height: 1;
 }
 
-// that's what u need for ur media queries
+// Heart animation mixin
+@mixin heart-animation{
+  .fa-heart {
+        &-content {
+          position:relative;
+          top:10px; 
+          margin-right:25px; 
+          transform: translate(-50%, -50%);
+        }
+        & .heart {
+          position: relative;
+          z-index: 1;
+          cursor: pointer;
+          -webkit-text-stroke: 2px white;
+          &-color {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            background: linear-gradient(#ff79da, #9356dc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: scale(0);
+            transition: 0.3s ease;
+          }
+        }
 
-// @media screen and (max-width: $phone) {}
-// @media screen and (max-width: $tablette) {}
-// @media screen and (max-width: $desktop) {}
-// @media screen and (min-width: $desktop) {}
+        font-size: 1.4rem;
+        vertical-align: middle;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        width: auto;
+        height: auto;
+        cursor: pointer;
+        transition: all 0.5s ease;
+      }
+      .fa-heart:hover .heart-color {
+        transform: scale(1); 
+        opacity: 1;
+      }
+      .heart:hover {
+        background: linear-gradient(#ff79da, #9356dc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 0px white;
+      }
+      /* Keyframes for the progressive fill */
+      @keyframes heart-fill {
+        0% {
+          background-size: 0% 100%;
+        }
+        100% {
+          background-size: 100% 100%;
+        }
+      }
+
+      /* Required to make the gradient move correctly */
+      .fa-heart {
+        background-size: 0% 100%;
+        background-repeat: no-repeat;
+        transition: background-size 2s ease;
+      }
+
+}
+
+// text truncate mixin -> when text is too long, add ... at the end
+@mixin text-truncate{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+}
+
+/* Animation for the menue where the check and price moves in and out */
+$check-width: 70px;
+$anim-duration: 0.35s;
+
+@keyframes slide-in-price {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-$check-width); }
+}
+
+@keyframes slide-in-check {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-price {
+  from { transform: translateX(-$check-width); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes slide-out-check {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+
+$slide-in-check : slide-in-check $anim-duration ease forwards;
+$slide-out-check : slide-out-check $anim-duration ease forwards; 
+
+
+$slide-in-price : slide-in-price $anim-duration ease forwards;
+$slide-out-price : slide-out-price $anim-duration ease forwards;  
+
+
