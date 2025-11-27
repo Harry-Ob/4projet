@@ -8,14 +8,14 @@
   margin-top: -25px;
   z-index: 100;
   position: relative;
-  margin-right: 50px;
-  margin-left: 50px;
+
 
   h2 {
     margin-left: 15px;
     font-size: 1rem;
     font-weight: lighter;
     text-transform: uppercase;
+
     &::after {
       content: "";
       display: block;
@@ -26,94 +26,179 @@
     }
   }
 
+  @include desktop {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+
   .txt-form {
     font-family: $logo-font;
     margin-left: 15px;
   }
+
   &-header {
-    @include tablet_desktop {
+    @include desktop {
       justify-content: center;
     }
+
     @include form-item(flex, row, center, space-between);
     gap: 50px;
-    i {
-      margin-right: 40px;
-    }
+
+  }
+// animation for each menue item
+  &-entree {
+    @include animation-fade-in();
+    animation-delay: 0s;
+  }
+
+  &-plat {
+    @include animation-fade-in();
+    animation-delay: 2s;
+  }
+
+  &-dessert {
+    @include animation-fade-in();
+    animation-delay: 4s;
   }
 }
+
 .menue-container {
   display: flex;
   flex-direction: column;
   gap: $gap-m;
   margin-bottom: 50px;
-  //  margin: 1rem 0 2rem;    /* spacing between sections */
 }
 
-@include tablet_desktop {
+// the flex here is not really used, it was made and left because it didnt change anything at the end
+@include desktop {
   .restaurant .menue-item {
     box-sizing: border-box;
     margin: 0;
     flex: 0 0 calc((100% - #{$gap-m}) / 2);
   }
-  .menue-container{
-    flex-direction:row;
-    flex-wrap:wrap;
+
+  .restaurant .menue .menue-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
   }
 }
+
 /* Each card */
 .menue-item {
-  position:relative;
-
-
-  .badge{
-    position:absolute; 
-    top:12px;
-    right:12px; 
-    background: $light-green ; 
-    color:$dark-green;
-    padding:6px 10px; 
-  }
-
+  position: relative;
+  overflow: hidden;
   @include card-figma;
 
   display: flex;
-  align-items: flex-start; /* align to top edge */
+  align-items: flex-start;
+
   justify-content: space-between;
   gap: 1rem;
   margin-inline: 15px;
+  animation: $slide-out-price;
+
+  .card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+
+    /* Makes the link invisible and non-breaking */
+    text-decoration: none;
+    color: inherit;
+    background: transparent;
+  }
+
+  .badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: $light-green;
+    color: $dark-green;
+    padding: 6px 10px;
+  }
+
   &-txt {
-    padding:10px 0px 10px 10px; 
-    // padding-top: 10px;
-    // padding-left: 10px;
+    padding: 10px 0px 10px 10px;
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    flex: 1 1 auto; /* grow/shrink as needed */
-    min-width: 0; /* allows text to wrap instead of pushing price away */
+    flex: 1 1 auto;
+    min-width: 0;
+
+    /* allows text to wrap instead of pushing price away */
     h3 {
       margin: 0;
       font-weight: 700;
+      @include text-truncate;
     }
 
     p {
       margin: 0;
-      opacity: 0.8; /* lighter tone like in your mock */
+      opacity: 0.8;
+      @include text-truncate;
     }
   }
 
   &-price {
     // verifier notre premiere ligne de code and why it is still needed
-    align-self: flex-end; /* sit at the bottom of the left column’s height */
+    align-self: flex-end;
     display: flex;
-    align-items: baseline; /* better optics for number + € */
+    align-items: baseline;
+ 
     gap: 0.25rem;
     font-weight: 700;
-    white-space: nowrap; /* “25 €” stays together */
+    white-space: nowrap;
+
+    /* “25 €” stays together */
+
     padding-right: 10px;
     padding-bottom: 10px;
+    animation: $slide-out-price;
+
     & p {
       margin: 0;
     }
+  }
+  // hover effect to show price and checkmark when on menue-item so the whole container is hoverable  
+  &:hover {
+    .menue-item-price {
+      animation: $slide-in-price;
+    }
+    .menue-item-check {
+      animation: $slide-in-check
+    }
+  }
+}
+
+.menue-txt-header {
+  color: black !important;
+}
+
+.menue-item-check {
+  position: absolute;
+  background: $light-green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 100%;
+  right: 0px;
+  opacity: 0;
+  pointer-events: none;
+  /* ignore mouse, hover stays on price */
+  z-index: 1;
+  /* ensure over price */
+  animation: $slide-out-check;
+
+  & i {
+    background: #fff;
+    border-radius: 50%;
+    padding: 3.5px;
+    color: $light-green;
   }
 }
 
@@ -121,12 +206,25 @@
   font-weight: 700;
 }
 
+.fa-heart-content {
+  position: relative;
+  z-index: 10;
+}
+
+@include heart-animation;
+
 .button-command {
   display: flex;
   justify-content: center;
   padding: 2rem 0;
+  cursor: pointer;
+  transition: $lighter-button; 
+
   button {
     @include button-primary;
+
+    &:hover {
+      background: $gradiant-light-violet;
+    }
   }
 }
-// one css for 4 different html pages
