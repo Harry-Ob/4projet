@@ -9,21 +9,187 @@ body {
 /* Spacing */
 /* Cards */
 /* Icônes / numéros */
-/* Card générique selon Figma */
-/* Cercle numéroté */
-body {
-  font-family: "Roboto", sans-serif;
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+/* Animation for the loading screen */
+.loader-ring {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #353535;
+  z-index: 9999;
+  animation: fadeOut 0.8s ease 2s forwards; /* fade after 2.5s */
+}
+
+.ring {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 6px solid white; /* start grey */
+  border-top-color: #9356dc; /* pink */
+  animation: spin 1s linear infinite, colorShift 2s ease forwards; /* gradual pink → violet */
+}
+
+/* spin rotation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* fade out overlay */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* Animation for the menue where the check and price moves in and out */
+@keyframes slide-in-price {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-70px);
+  }
+}
+@keyframes slide-in-check {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slide-out-price {
+  from {
+    transform: translateX(-70px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slide-out-check {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
 
 body {
   font-family: "Roboto", sans-serif;
 }
 
-/* Spacing */
-/* Cards */
-/* Icônes / numéros */
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.loader-ring {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #353535;
+  z-index: 9999;
+  animation: fadeOut 0.8s ease 2s forwards; /* fade after 2.5s */
+}
+
+.ring {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 6px solid white; /* start grey */
+  border-top-color: #9356dc; /* pink */
+  animation: spin 1s linear infinite, colorShift 2s ease forwards; /* gradual pink → violet */
+}
+
+/* spin rotation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* fade out overlay */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
 /* Card générique selon Figma */
 /* Cercle numéroté */
+@keyframes slide-in-price {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-70px);
+  }
+}
+@keyframes slide-in-check {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slide-out-price {
+  from {
+    transform: translateX(-70px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slide-out-check {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
 .header {
   width: 100%;
   display: flex;
@@ -77,6 +243,9 @@ body {
   display: flex;
   position: absolute;
   left: 30px;
+  color: black;
+  text-decoration: none;
+  font-size: larger;
 }
 .header-menue .logo {
   display: flex;
@@ -165,8 +334,6 @@ footer i {
   margin-top: -25px;
   z-index: 100;
   position: relative;
-  margin-right: 50px;
-  margin-left: 50px;
 }
 .menue h2 {
   margin-left: 15px;
@@ -181,6 +348,12 @@ footer i {
   height: 3px;
   background: #99e2d0;
   margin-top: 5px;
+}
+@media (min-width: 767.98px) {
+  .menue {
+    margin-right: 50px;
+    margin-left: 50px;
+  }
 }
 .menue .txt-form {
   font-family: "Shrikhand", "sans-serif";
@@ -198,8 +371,26 @@ footer i {
     justify-content: center;
   }
 }
-.menue-header i {
-  margin-right: 40px;
+.menue-entree {
+  opacity: 0;
+  transform: translateY(10px);
+  will-change: opacity, transform;
+  animation: fadeSlideIn 2s ease-out forwards;
+  animation-delay: 0s;
+}
+.menue-plat {
+  opacity: 0;
+  transform: translateY(10px);
+  will-change: opacity, transform;
+  animation: fadeSlideIn 2s ease-out forwards;
+  animation-delay: 2s;
+}
+.menue-dessert {
+  opacity: 0;
+  transform: translateY(10px);
+  will-change: opacity, transform;
+  animation: fadeSlideIn 2s ease-out forwards;
+  animation-delay: 4s;
 }
 
 .menue-container {
@@ -215,14 +406,16 @@ footer i {
     margin: 0;
     flex: 0 0 calc((100% - 20px) / 2);
   }
-  .menue-container {
-    flex-direction: row;
+  .restaurant .menue .menue-container {
+    display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
   }
 }
 /* Each card */
 .menue-item {
   position: relative;
+  overflow: hidden;
   background: #fafafa;
   border-radius: 1.25rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
@@ -231,6 +424,19 @@ footer i {
   justify-content: space-between;
   gap: 1rem;
   margin-inline: 15px;
+  animation: slide-out-price 0.35s ease forwards;
+}
+.menue-item .card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  /* Makes the link invisible and non-breaking */
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
 }
 .menue-item .badge {
   position: absolute;
@@ -251,10 +457,16 @@ footer i {
 .menue-item-txt h3 {
   margin: 0;
   font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .menue-item-txt p {
   margin: 0;
   opacity: 0.8; /* lighter tone like in your mock */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .menue-item-price {
   align-self: flex-end; /* sit at the bottom of the left column’s height */
@@ -265,19 +477,123 @@ footer i {
   white-space: nowrap; /* “25 €” stays together */
   padding-right: 10px;
   padding-bottom: 10px;
+  animation: slide-out-price 0.35s ease forwards;
 }
 .menue-item-price p {
   margin: 0;
+}
+.menue-item:hover .menue-item-price {
+  animation: slide-in-price 0.35s ease forwards;
+}
+.menue-item:hover .menue-item-check {
+  animation: slide-in-check 0.35s ease forwards;
+}
+
+.menue-txt-header {
+  color: black !important;
+}
+
+.menue-item-check {
+  position: absolute;
+  background: #99e2d0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 100%;
+  right: 0px;
+  opacity: 0;
+  pointer-events: none; /* ignore mouse, hover stays on price */
+  z-index: 1; /* ensure over price */
+  animation: slide-out-check 0.35s ease forwards;
+}
+.menue-item-check i {
+  background: #fff; /* same as card: white */
+  border-radius: 50%;
+  padding: 3.5px;
+  color: #99e2d0;
 }
 
 .euro {
   font-weight: 700;
 }
 
+.fa-heart-content {
+  position: relative;
+  z-index: 10;
+}
+
+.fa-heart {
+  font-size: 1.4rem;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.fa-heart-content {
+  position: relative;
+  top: 10px;
+  margin-right: 25px;
+  transform: translate(-50%, -50%);
+}
+.fa-heart .heart {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  -webkit-text-stroke: 2px white;
+}
+.fa-heart .heart-color {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background: linear-gradient(#ff79da, #9356dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.3s ease;
+}
+
+.fa-heart:hover .heart-color {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.heart:hover {
+  background: linear-gradient(#ff79da, #9356dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0px white;
+}
+
+/* Keyframes for the progressive fill */
+@keyframes heart-fill {
+  0% {
+    background-size: 0% 100%;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}
+/* Required to make the gradient move correctly */
+.fa-heart {
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  transition: background-size 2s ease;
+}
+
 .button-command {
   display: flex;
   justify-content: center;
   padding: 2rem 0;
+  cursor: pointer;
+  transition: background 0.4s ease;
 }
 .button-command button {
   background: linear-gradient(201deg, #9356dc -5.2%, #ff79da 110.74%);
@@ -287,6 +603,9 @@ footer i {
   border-radius: 25px;
   padding: 15px 25px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.button-command button:hover {
+  background: linear-gradient(210deg, #ae80e5 -5.2%, #fface8 110%);
 }
 
 /* === RESTAURANTS (flex-only layout) === */
@@ -299,8 +618,11 @@ footer i {
 .restaurant h2 {
   font-weight: 700;
   font-size: 1.4rem;
-  color: #353535;
-  margin-bottom: 20px;
+  margin-left: 0;
+  text-transform: none;
+}
+.restaurant h2::after {
+  content: none;
 }
 .restaurant .menue {
   display: flex;
@@ -335,6 +657,8 @@ footer i {
   padding-right: 10px;
   padding-bottom: 10px;
   /* heart icon flex aligned */
+  /* Keyframes for the progressive fill */
+  /* Required to make the gradient move correctly */
 }
 .restaurant .menue-item .menue-content .menue-txt {
   display: flex;
@@ -359,8 +683,64 @@ footer i {
   font-size: 1.3rem;
   color: #353535;
 }
-.restaurant .menue-item .menue-content .menue-heart i.fa-solid .fa-heart::before {
-  color: linear-gradient(201deg, #9356dc -5.2%, #ff79da 110.74%) !important;
+.restaurant .menue-item .menue-content .fa-heart {
+  font-size: 1.4rem;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+.restaurant .menue-item .menue-content .fa-heart-content {
+  position: relative;
+  top: 10px;
+  margin-right: 25px;
+  transform: translate(-50%, -50%);
+}
+.restaurant .menue-item .menue-content .fa-heart .heart {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  -webkit-text-stroke: 2px white;
+}
+.restaurant .menue-item .menue-content .fa-heart .heart-color {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background: linear-gradient(#ff79da, #9356dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.3s ease;
+}
+.restaurant .menue-item .menue-content .fa-heart:hover .heart-color {
+  transform: scale(1);
+  opacity: 1;
+}
+.restaurant .menue-item .menue-content .heart:hover {
+  background: linear-gradient(#ff79da, #9356dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0px white;
+}
+@keyframes heart-fill {
+  0% {
+    background-size: 0% 100%;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}
+.restaurant .menue-item .menue-content .fa-heart {
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  transition: background-size 2s ease;
 }
 
 .introduction {
@@ -397,6 +777,11 @@ footer i {
   border-radius: 25px;
   font-size: 1rem;
   margin-bottom: 3rem;
+  cursor: pointer;
+  transition: background 0.4s ease;
+}
+.introduction-button:hover {
+  background: linear-gradient(210deg, #ae80e5 -5.2%, #fface8 110%);
 }
 
 .img-background {
@@ -429,6 +814,12 @@ footer i {
   gap: 15px;
   flex-direction: column;
 }
+@media (min-width: 767.98px) and (max-width: 1024px) {
+  .fonction-box-container {
+    flex-direction: column !important;
+    display: flex !important;
+  }
+}
 @media (min-width: 767.98px) {
   .fonction {
     display: flex;
@@ -449,7 +840,6 @@ footer i {
 .fonction h2 {
   font-weight: 700;
   font-size: 1.4rem;
-  color: #353535;
 }
 .fonction-box {
   background: #fafafa;
