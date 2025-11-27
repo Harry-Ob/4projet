@@ -19,13 +19,19 @@
     font-weight: normal;
     margin-bottom: 25px;
   }
+
+
   &-button {
     @include button-primary;
     border-radius: 25px;
     font-size: 1rem;
     margin-bottom: 3rem;
-    // a voir si on garde la ligne du bas
-    // cursor:pointer; not needed but keep as info
+    cursor: pointer;
+    transition: $lighter-button; 
+
+    &:hover {
+      background: $gradiant-light-violet;
+    }
   }
 }
 
@@ -53,45 +59,50 @@
     display: flex;
     gap: 15px;
     flex-direction: column;
-    // padding-bottom:50px;
   }
-  @include tablet_desktop {
+  // this section could be changed 
+  @include tablet {
+    &-box-container {
+      flex-direction: column!important;
+      display:flex!important; 
+    }
+  }
+
+  // Desktop and Larger Screens 
+  @include desktop {
     display: flex;
     flex-direction: column;
 
     align-items: flex-start;
     align-content: center;
     flex-wrap: wrap;
+
     h2 {
       display: flex;
     }
+
     &-box-container {
       display: flex;
       flex-direction: row;
       gap: 20px;
-      // padding-bottom:0;
     }
   }
 
   h2 {
     font-weight: 700;
     font-size: 1.4rem;
-    color: $dark-grey;
-    // margin-bottom: $gap-m;
   }
-
+  
   &-box {
     @include card-figma; // radius 1.25rem, shadow Figma, bg #FAFAFA
     @include form-item(flex, row, center, flex-start);
     gap: $gap-m;
     min-height: 72px; // léger plus haut que 70 pour respiro
     min-width: 280px;
-    // margin-bottom: $gap-m;
   }
 
   /* Cercle numéroté (1 / 2 / 3) — déborde à gauche comme sur Figma */
   .fonction-elem-num {
-    // margin:-60px;
     @include step-circle(); // 28px, violet, blanc (poids 500)
     font-size: 0.9rem;
     margin-left: -10px;
@@ -111,6 +122,3 @@
     white-space: nowrap; // évite le wrap moche sur une ligne courte
   }
 }
-// }
-// gap might be needed here
-// introduction h3 => font-weight = normal; => placer au bon endroit
