@@ -1,63 +1,60 @@
-footer{
+footer {
     background-color: $dark-grey;
     color: white;
-    padding:22px 25px 22px 25px;
-        .form-item h2{
-                        
-                font-family:$logo-font; 
-                margin-bottom:0; 
-            
-        }
-        .#{&}-form{
-            @include form-item (flex,row,center,flex-start);
-            gap: 10px;
-            margin-left: 0; 
-            margin-top:7px; 
-           
-            @include tablet_desktop{
-                display:flex;
-                flex-direction: row;
-            }
+    padding: 22px 25px 22px 25px;
 
-        }
-        a {
-            color:white;
-            text-decoration: none ; 
-        }
-        p {
-            margin:0px ;
-            
-        }
-        h2{
-            font-weight: normal ;
-            margin:0px;
-            margin-bottom:10px;
-            
-        }
-        i {
-            width: 20px ; 
-        }
-        
-        @include tablet_desktop{
-    display:flex;
-
-    justify-content: flex-end;
-    .form-item{
-        display:flex;
-        flex-direction: row-reverse;
-
-        align-items: center;
-        gap:20px;
-            &-txt{
-                display:flex;
-                gap:10px;
-            }
-
+    .form-item h2 {
+        font-family: $logo-font;
+        margin-bottom: 0;
 
     }
 
+    .#{&}-form {
+        @include form-item (flex, row, center, flex-start);
+        gap: 10px;
+        margin-left: 0;
+        margin-top: 7px;
 
+        @include desktop {
+            display: flex;
+            flex-direction: row;
+        }
+
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    p {
+        margin: 0px;
+    }
+
+    h2 {
+        font-weight: normal;
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+
+    i {
+        width: 20px;
+    }
+
+    @include desktop {
+        display: flex;
+        justify-content: flex-end;
+
+        .form-item {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 20px;
+
+            &-txt {
+                display: flex;
+                gap: 10px;
+            }
+        }
+    }
 }
-
-}
-
