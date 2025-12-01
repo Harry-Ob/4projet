@@ -5,7 +5,7 @@
 
   "scripts": {
     "sass": "sass ./code/Sass/main.scss ./code/css/index.css",
-    "sass:watch": "sass --watch ./code/Sass/main.scss ./code/css/index.css",
-    "s":"sass ./code/Sass/main.sass ./code/sass-index.css" 
+    "sass:watch": "sass --watch ./code/Sass/main.scss ./code/css/index.css"
+    
   }
 }
