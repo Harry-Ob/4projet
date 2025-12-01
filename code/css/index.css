@@ -6,9 +6,11 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+/* Colors */
 /* Spacing */
 /* Cards */
 /* Icônes / numéros */
+/* Animations */
 @keyframes fadeSlideIn {
   0% {
     opacity: 0;
@@ -19,7 +21,6 @@ body {
     transform: translateY(0);
   }
 }
-/* Animation for the loading screen */
 .loader-ring {
   position: fixed;
   inset: 0;
@@ -45,7 +46,6 @@ body {
     transform: rotate(360deg);
   }
 }
-
 /* fade out overlay */
 @keyframes fadeOut {
   0% {
@@ -57,7 +57,7 @@ body {
     pointer-events: none;
   }
 }
-
+/* Cercle numéroté */
 /* Animation for the menue where the check and price moves in and out */
 @keyframes slide-in-price {
   from {
@@ -95,8 +95,6 @@ body {
     transform: translateX(20px);
   }
 }
-
-
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -105,7 +103,11 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-
+/* Colors */
+/* Spacing */
+/* Cards */
+/* Icônes / numéros */
+/* Animations */
 @keyframes fadeSlideIn {
   0% {
     opacity: 0;
@@ -152,8 +154,8 @@ body {
     pointer-events: none;
   }
 }
-/* Card générique selon Figma */
 /* Cercle numéroté */
+/* Animation for the menue where the check and price moves in and out */
 @keyframes slide-in-price {
   from {
     transform: translateX(0);
@@ -420,7 +422,7 @@ footer i {
   border-radius: 1.25rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   display: flex;
-  align-items: flex-start; /* align to top edge */
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
   margin-inline: 15px;
@@ -451,8 +453,9 @@ footer i {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  flex: 1 1 auto; /* grow/shrink as needed */
-  min-width: 0; /* allows text to wrap instead of pushing price away */
+  flex: 1 1 auto;
+  min-width: 0;
+  /* allows text to wrap instead of pushing price away */
 }
 .menue-item-txt h3 {
   margin: 0;
@@ -463,18 +466,19 @@ footer i {
 }
 .menue-item-txt p {
   margin: 0;
-  opacity: 0.8; /* lighter tone like in your mock */
+  opacity: 0.8;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .menue-item-price {
-  align-self: flex-end; /* sit at the bottom of the left column’s height */
+  align-self: flex-end;
   display: flex;
-  align-items: baseline; /* better optics for number + € */
+  align-items: baseline;
   gap: 0.25rem;
   font-weight: 700;
-  white-space: nowrap; /* “25 €” stays together */
+  white-space: nowrap;
+  /* “25 €” stays together */
   padding-right: 10px;
   padding-bottom: 10px;
   animation: slide-out-price 0.35s ease forwards;
@@ -503,12 +507,14 @@ footer i {
   height: 100%;
   right: 0px;
   opacity: 0;
-  pointer-events: none; /* ignore mouse, hover stays on price */
-  z-index: 1; /* ensure over price */
+  pointer-events: none;
+  /* ignore mouse, hover stays on price */
+  z-index: 1;
+  /* ensure over price */
   animation: slide-out-check 0.35s ease forwards;
 }
 .menue-item-check i {
-  background: #fff; /* same as card: white */
+  background: #fff;
   border-radius: 50%;
   padding: 3.5px;
   color: #99e2d0;
